@@ -11,11 +11,11 @@ module Git
       @stashes = nil
       
       parts = name.split('/')
-      if parts[1]
+      if parts[1] && parts[0] == "remote"
         @remote = Git::Remote.new(@base, parts[0])
         @name = parts[1]
       else
-        @name = parts[0]
+        @name = name
       end
     end
     
